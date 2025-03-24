@@ -1,0 +1,45 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.14.0]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run ESLint with auto-fix
+      run: npm run lint -- --fix
+
+    - name: Build the project
+      run: npm run build --if-present
+
+    - name: Start SvelteKit app in background
+      run: npm run dev &
+
+    - name: Wait for server and test if app is running
+      run: |
+        sleep 5
+        curl -I http://localhost:5173 || exit 1
+
+    - name: Run tests
+      run: npm test
