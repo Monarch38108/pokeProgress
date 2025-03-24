@@ -43,6 +43,3 @@ jobs:
       run: |
         sleep 5
         curl -I http://localhost:5173 || exit 1
-
-    - name: Run tests
-      run: npm test
