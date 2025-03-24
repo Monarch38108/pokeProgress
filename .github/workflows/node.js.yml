@@ -28,7 +28,7 @@ jobs:
       run: npm ci
 
     - name: Run Prettier with --write
-      run: npm format
+      run: npm run format
 
     - name: Run ESLint with auto-fix
       run: npm run lint -- --fix
