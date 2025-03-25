@@ -1,4 +1,17 @@
-# pokeProgress
+# pokeProgress🏆🎮
+
+A web app designed for Pokémon enthusiasts who strive for 100% completion! Whether you're doing a full Pokédex run, a Professor Oak Challenge, or just want to track your progress across multiple games, this tool helps you stay organized.
+Features (Planned)
+
+    📊 Track your progress across all Pokémon games
+
+    🏅 Support for 100% completion runs and special challenges
+
+    🔄 Sync data across devices
+
+    🎨 Clean and intuitive UI for easy tracking
+
+Stay tuned for updates! 🚀
 
 ## Initial Setup
 Before running the project, make sure to:
