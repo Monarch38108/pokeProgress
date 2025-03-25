@@ -11,12 +11,12 @@
 </svelte:head>
 
 <nav>
-	{#if !$page.data.user}
+	{#if !page.data.user}
 		<a href="/login">Login</a>
 		<a href="/register">Register</a>
 	{/if}
 
-	{#if $page.data.user}
+	{#if page.data.user}
 		<a href="/admin">Admin</a>
 
 		<form action="/logout" method="POST" use:enhance>
