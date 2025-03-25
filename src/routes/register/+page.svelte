@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { enhance } from '$app/forms'
 	let { form } = $props()
 </script>
 
 <h1>Registration</h1>
 
-<form action="?/register" method="POST">
+<form action="?/register" method="POST" use:enhance>
 	<div>
 		<label for="username">Username</label>
 		<input id="username" name="username" type="text" required />
