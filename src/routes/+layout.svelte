@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/state'
-	import { enhance } from '$app/forms'
-	import '../app.css'
+	import { page } from '$app/state';
+	import { enhance } from '$app/forms';
+	import '../app.css';
 
-	let { children } = $props()
+	let { children } = $props();
 </script>
 
 <svelte:head>
@@ -41,22 +41,21 @@
 				>
 					Admin
 				</a>
+			{/if}
 
-				}
-
-				<form
-					action="/logout"
-					method="POST"
-					use:enhance
-					class="contents"
+			<form
+				action="/logout"
+				method="POST"
+				use:enhance
+				class="contents"
+			>
+				<button
+					type="submit"
+					class="px-3 py-2 rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 transition-colors"
 				>
-					<button
-						type="submit"
-						class="px-3 py-2 rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 transition-colors"
-					>
-						Log out
-					</button>
-				</form>
+					Log out
+				</button>
+			</form>
 			{/if}
 		</div>
 	</nav>
