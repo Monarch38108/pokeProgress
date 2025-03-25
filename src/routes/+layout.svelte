@@ -42,20 +42,20 @@
 					Admin
 				</a>
 			{/if}
-
-			<form
-				action="/logout"
-				method="POST"
-				use:enhance
-				class="contents"
-			>
-				<button
-					type="submit"
-					class="px-3 py-2 rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 transition-colors"
+			{#if page.data.user}
+				<form
+					action="/logout"
+					method="POST"
+					use:enhance
+					class="contents"
 				>
-					Log out
-				</button>
-			</form>
+					<button
+						type="submit"
+						class="px-3 py-2 rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 transition-colors"
+					>
+						Log out
+					</button>
+				</form>
 			{/if}
 		</div>
 	</nav>
