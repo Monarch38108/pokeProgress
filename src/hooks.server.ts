@@ -25,5 +25,5 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 
 	// load page as normal
-	return await resolve(event)
+	return resolve(event);
 }
