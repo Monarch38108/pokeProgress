@@ -4,8 +4,11 @@ import type { Action, Actions } from './$types';
 
 import { prisma } from '$lib/prisma'
 
-export const load = async () => {
-	// todo
+export const load = async ({ locals }) => {
+	// redirect user if logged in
+	if (locals.user) {
+		redirect(302, '/')
+	}
 }
 
 const login: Action = async ({ cookies, request }) => {
