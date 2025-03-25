@@ -34,13 +34,15 @@
 				</a>
 			{/if}
 
-			{#if page.data.user}
+			{#if page.data.user.role === 'ADMIN'}
 				<a
 					href="/admin"
 					class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 transition-colors"
 				>
 					Admin
 				</a>
+
+				}
 
 				<form
 					action="/logout"
