@@ -8,6 +8,6 @@
 {/if}
 
 {#each trackerData as tracker, index (tracker.id || index)}
-	<p>Tracker: {index} for the game {tracker.game.title}</p>
+	<p>Tracker: {index + 1} for the game {tracker.game.title}</p>
 	<p>Progress: {tracker.progress}%</p>
 {/each}
