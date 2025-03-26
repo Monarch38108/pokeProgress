@@ -10,6 +10,8 @@
 	<title>PokéProgress</title>
 </svelte:head>
 
+<!-- Navbar -->
+<div class="flex flex-col min-h-screen">
 <div class="bg-gray-800 text-white shadow-md">
 	<nav class="container mx-auto px-4 py-3 flex justify-between items-center">
 		<div class="flex items-center">
@@ -61,7 +63,7 @@
 	</nav>
 </div>
 
-<main>
+<main class="flex-grow">
 	{@render children?.()}
 </main>
 
@@ -71,3 +73,4 @@
 		<p>© 2024 PokéProgress. Gotta Track 'Em All!</p>
 	</div>
 </footer>
+</div>
