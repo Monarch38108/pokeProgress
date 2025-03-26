@@ -3,9 +3,6 @@ import type { PageServerLoad } from './$types';
 import type { TrackerData } from '../../interfaces/TrackerData';
 import { prisma } from '$lib/prisma';
 
-let trackers: TrackerData[];
-
-
 export const load: PageServerLoad = async ({ locals, params }) => {
 	// redirect user if not logged in
 	if (!locals.user) {
@@ -17,24 +14,33 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 			username: params.slug
 		}
 	});
-	if (user) {
-		trackers = await prisma.tracker.findMany({
-			where: { userId: user.id },
-			select: {
-				id: true,
-				progress: true,
-				isPublic: true,
-				createdAt: true,
-				updatedAt: true,
-				game: {
-					select: {
-						id: true,
-						title: true,
-					}
+
+	if (!user) {
+		return {
+			pageOwner: null,
+			trackerData: null
+		};
+	}
+
+	const trackers = await prisma.tracker.findMany({
+		where: {
+			userId: user.id,
+			isPublic: true
+		},
+		select: {
+			id: true,
+			progress: true,
+			createdAt: true,
+			updatedAt: true,
+			game: {
+				select: {
+					id: true,
+					title: true,
 				}
 			}
-		});
-	}
+		}
+	});
+
 	return {
 		pageOwner: params.slug,
 		trackerData: trackers
