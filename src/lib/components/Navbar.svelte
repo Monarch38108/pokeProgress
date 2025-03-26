@@ -36,6 +36,12 @@ import { enhance } from '$app/forms';
 				</a>
 			{/if}
 			{#if page.data.user}
+				<a
+					href="/{page.data.user.name}"
+					class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+				>
+					Your Trackers
+				</a>
 				<form
 					action="/logout"
 					method="POST"
