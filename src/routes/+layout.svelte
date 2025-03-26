@@ -7,14 +7,14 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit Auth</title>
+	<title>PokéProgress</title>
 </svelte:head>
 
 <div class="bg-gray-800 text-white shadow-md">
 	<nav class="container mx-auto px-4 py-3 flex justify-between items-center">
 		<div class="flex items-center">
 			<a href="/" class="text-2xl font-bold text-white hover:text-gray-300 transition-colors">
-				pokéProgress
+				PokéProgress
 			</a>
 		</div>
 
