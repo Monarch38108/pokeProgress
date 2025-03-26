@@ -11,13 +11,13 @@
 </script>
 
 <div class="container mx-auto px-4 py-8">
-	{#if data.pageOwner === page.params.slug}
+	{#if data.pageOwner && data.pageOwner === page.params.slug}
 		<div class="flex items-center mb-8">
 			<UserIcon size={32} class="mr-4 text-red-500" />
 			<h1 class="text-3xl font-bold text-gray-800">Your Trackers</h1>
 		</div>
 		<TrackerList trackerData={data.trackerData}/>
-	{:else}
+	{:else if data.pageOwner && data.pageOwner !== page.params.slug}
 		<div class="flex items-center mb-8">
 			<EyeIcon size={32} class="mr-4 text-blue-500" />
 			<h1 class="text-3xl font-bold text-gray-800">
@@ -25,13 +25,12 @@
 			</h1>
 		</div>
 		<TrackerList trackerData={data.trackerData}/>
-	{/if}
-
-	{#if data.trackerData.length === 0}
-		<div class="text-center py-12 bg-gray-100 rounded-lg">
-			<p class="text-xl text-gray-600">
-				No trackers to display at the moment.
-			</p>
+	{:else}
+		<div class="flex items-center mb-8">
+			<EyeIcon size={32} class="mr-4 text-blue-500" />
+			<h1 class="text-3xl font-bold text-gray-800">
+				The user {page.params.slug} was not found!
+			</h1>
 		</div>
 	{/if}
 </div>

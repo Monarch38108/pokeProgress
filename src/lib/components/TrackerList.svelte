@@ -5,7 +5,7 @@
 	export let trackerData: TrackerData[];
 </script>
 
-{#if trackerData.length < 1}
+{#if !trackerData}
 	<div class="flex flex-col items-center justify-center min-h-[400px] bg-gray-100 rounded-lg p-8 text-center">
 		<GamepadIcon size={64} class="text-gray-400 mb-6" />
 		<h1 class="text-2xl font-bold text-gray-700 mb-4">
@@ -20,7 +20,7 @@
 	</div>
 {/if}
 
-{#if trackerData.length > 0}
+{#if trackerData}
 	<div class="space-y-6">
 		{#each trackerData as tracker, index (tracker.id || index)}
 			<div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-red-500 hover:shadow-lg transition">
