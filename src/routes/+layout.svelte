@@ -73,4 +73,5 @@
 		<p>© 2024 PokéProgress. Gotta Track 'Em All!</p>
 	</div>
 </footer>
+	<Footer />
 </div>
