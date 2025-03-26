@@ -8,7 +8,7 @@
 	<h1>You are not tracking any progress of the games yet.</h1>
 {/if}
 
-{#each trackerData as tracker}
-	<p>Tracker: {tracker.id} for the game {tracker.game.title}</p>
+{#each trackerData as tracker, index}
+	<p>Tracker: {index} for the game {tracker.game.title}</p>
 	<p>Progress: {tracker.progress}%</p>
 {/each}
