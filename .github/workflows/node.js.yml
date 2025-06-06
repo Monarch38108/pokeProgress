@@ -34,7 +34,9 @@ jobs:
       run: npm run lint -- --fix
 
     - name: Test the previw
-      run: npm run preview
+      run: |
+        npm run build --if-present
+        npm run preview
 
     - name: Wait for server and test if app is running
       run: |
