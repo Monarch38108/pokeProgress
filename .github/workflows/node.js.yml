@@ -33,13 +33,10 @@ jobs:
     - name: Run ESLint with auto-fix
       run: npm run lint -- --fix
 
-    - name: Build the project
-      run: npm run build --if-present
-
-    - name: Start SvelteKit app in background
-      run: npm run dev &
+    - name: Test the previw
+      run: npm run preview
 
     - name: Wait for server and test if app is running
       run: |
         sleep 5
-        curl -I http://localhost:5173 || exit 1
+        curl -I http://localhost:4173 || exit 1
