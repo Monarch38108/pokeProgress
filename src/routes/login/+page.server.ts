@@ -58,7 +58,7 @@ const login: Action = async ({ cookies, request }) => {
 	})
 
 	// redirect the user
-	redirect(302, '/')
+	redirect(302, `/${username}`)
 }
 
 export const actions: Actions = { login }
