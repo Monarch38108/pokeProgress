@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 
 	const user = await prisma.user.findUnique({
 		where: {
-			username: params.slug
+			username: params.userdashboard
 		}
 	});
 
@@ -42,7 +42,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	});
 
 	return {
-		pageOwner: params.slug,
+		pageOwner: params.userdashboard,
 		trackerData: trackers
 	};
 };
