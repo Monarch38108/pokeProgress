@@ -24,7 +24,13 @@ npm install
 # or use pnpm or yarn
 ```
 
-2. Initialize the SQLite database:
+2. Create the .env File
+
+You have to copy the .env.example file and rename it to ".env". 
+After you created the file, you have to specify the database path. 
+If you plan on using a sqlite database, the path can stay the same.
+
+3. Initialize the SQLite database:
 
 ```bash
 npx prisma migrate dev --name init
