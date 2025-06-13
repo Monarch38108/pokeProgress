@@ -1,12 +1,12 @@
 <script>
-import { page } from '$app/state';
-import { enhance } from '$app/forms';
+	import { page } from '$app/state';
+	import { enhance } from '$app/forms';
 </script>
 
 <div class="bg-gray-800 text-white shadow-md">
-	<nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+	<nav class="container mx-auto flex items-center justify-between px-4 py-3">
 		<div class="flex items-center">
-			<a href="/" class="text-2xl font-bold text-white hover:text-gray-300 transition-colors">
+			<a href="/" class="text-2xl font-bold text-white transition-colors hover:text-gray-300">
 				PokéProgress
 			</a>
 		</div>
@@ -15,13 +15,13 @@ import { enhance } from '$app/forms';
 			{#if !page.data.user}
 				<a
 					href="/login"
-					class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+					class="rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700"
 				>
 					Login
 				</a>
 				<a
 					href="/register"
-					class="px-3 py-2 rounded-md text-sm font-medium bg-blue-600 hover:bg-blue-700 transition-colors"
+					class="rounded-md bg-blue-600 px-3 py-2 text-sm font-medium transition-colors hover:bg-blue-700"
 				>
 					Register
 				</a>
@@ -30,7 +30,7 @@ import { enhance } from '$app/forms';
 			{#if page.data.user && page.data.user.role === 'ADMIN'}
 				<a
 					href="/admin"
-					class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+					class="rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700"
 				>
 					Admin
 				</a>
@@ -38,19 +38,14 @@ import { enhance } from '$app/forms';
 			{#if page.data.user}
 				<a
 					href="/{page.data.user.name}"
-					class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+					class="rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700"
 				>
 					Your Trackers
 				</a>
-				<form
-					action="/logout"
-					method="POST"
-					use:enhance
-					class="contents"
-				>
+				<form action="/logout" method="POST" use:enhance class="contents">
 					<button
 						type="submit"
-						class="px-3 py-2 rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 transition-colors"
+						class="rounded-md bg-red-600 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
 					>
 						Log out
 					</button>

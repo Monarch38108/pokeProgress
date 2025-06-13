@@ -22,7 +22,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		};
 	}
 
-	const trackers : TrackerData[] = await prisma.tracker.findMany({
+	const trackers: TrackerData[] = await prisma.tracker.findMany({
 		where: {
 			userId: user.id,
 			isPublic: true
@@ -35,7 +35,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 			game: {
 				select: {
 					id: true,
-					title: true,
+					title: true
 				}
 			}
 		}

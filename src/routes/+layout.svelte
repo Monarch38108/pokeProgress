@@ -1,6 +1,6 @@
 <script lang="ts">
-	import  Footer  from '$lib/components/Footer.svelte';
-	import  Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import '../app.css';
 
 	let { children } = $props();
@@ -11,8 +11,8 @@
 </svelte:head>
 
 <!-- Navbar -->
-<div class="flex flex-col min-h-screen">
-	<Navbar/>
+<div class="flex min-h-screen flex-col">
+	<Navbar />
 	<main class="flex-grow">
 		{@render children?.()}
 	</main>

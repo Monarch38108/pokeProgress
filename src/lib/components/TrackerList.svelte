@@ -6,15 +6,16 @@
 </script>
 
 {#if !trackerData}
-	<div class="flex flex-col items-center justify-center min-h-[400px] bg-gray-100 rounded-lg p-8 text-center">
-		<GamepadIcon size={64} class="text-gray-400 mb-6" />
-		<h1 class="text-2xl font-bold text-gray-700 mb-4">
-			No Pokémon Trackers Yet
-		</h1>
-		<p class="text-gray-500 max-w-md">
-			Start your Pokémon journey by creating a new tracker. Track your progress, catch rates, and achievements!
+	<div
+		class="flex min-h-[400px] flex-col items-center justify-center rounded-lg bg-gray-100 p-8 text-center"
+	>
+		<GamepadIcon size={64} class="mb-6 text-gray-400" />
+		<h1 class="mb-4 text-2xl font-bold text-gray-700">No Pokémon Trackers Yet</h1>
+		<p class="max-w-md text-gray-500">
+			Start your Pokémon journey by creating a new tracker. Track your progress, catch rates, and
+			achievements!
 		</p>
-		<button class="mt-6 bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition">
+		<button class="mt-6 rounded-full bg-red-500 px-6 py-3 text-white transition hover:bg-red-600">
 			Create First Tracker
 		</button>
 	</div>
@@ -23,17 +24,19 @@
 {#if trackerData}
 	<div class="space-y-6">
 		{#each trackerData as tracker, index (tracker.id || index)}
-			<div class="bg-white shadow-md rounded-lg p-6 border-l-4 border-red-500 hover:shadow-lg transition">
-				<div class="flex justify-between items-center mb-4">
+			<div
+				class="rounded-lg border-l-4 border-red-500 bg-white p-6 shadow-md transition hover:shadow-lg"
+			>
+				<div class="mb-4 flex items-center justify-between">
 					<h3 class="text-xl font-semibold text-gray-800">
 						{tracker.game.title}
 					</h3>
 					<span class="text-sm text-gray-500">
-            Tracker #{index + 1}
-          </span>
+						Tracker #{index + 1}
+					</span>
 				</div>
 
-				<div class="w-full bg-gray-200 rounded-full h-4 mb-3">
+				<div class="mb-3 h-4 w-full rounded-full bg-gray-200">
 					<div
 						class="h-4 rounded-full bg-red-500 transition-all duration-500 ease-in-out"
 						style="width: {tracker.progress}%"

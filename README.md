@@ -14,20 +14,26 @@ Features (Planned)
 Stay tuned for updates! 🚀
 
 ## Initial Setup
+
 Before running the project, make sure to:
+
 1. Install dependencies:
+
 ```bash
 npm install
 # or use pnpm or yarn
 ```
 
 2. Initialize the SQLite database:
+
 ```bash
 npx prisma migrate dev --name init
 ```
 
 ## Developing
+
 Start a development server:
+
 ```bash
 npm run dev
 # or start the server and open the app in a new browser tab

@@ -7,36 +7,31 @@ import { prisma } from '$lib/prisma';
 // if you're not using TypeScript use an object
 enum Roles {
 	ADMIN = 'ADMIN',
-	USER = 'USER',
+	USER = 'USER'
 }
 
 export const load = async ({ locals }) => {
 	// redirect user if logged in
 	if (locals.user) {
-		redirect(302, '/')
+		redirect(302, '/');
 	}
-}
+};
 
 const register: Action = async ({ request }) => {
-	const data = await request.formData()
-	const username = data.get('username')
-	const password = data.get('password')
+	const data = await request.formData();
+	const username = data.get('username');
+	const password = data.get('password');
 
-	if (
-		typeof username !== 'string' ||
-		typeof password !== 'string' ||
-		!username ||
-		!password
-	) {
-		return fail(400, { invalid: true })
+	if (typeof username !== 'string' || typeof password !== 'string' || !username || !password) {
+		return fail(400, { invalid: true });
 	}
 
 	const user = await prisma.user.findUnique({
-		where: { username },
-	})
+		where: { username }
+	});
 
 	if (user) {
-		return fail(400, { user: true })
+		return fail(400, { user: true });
 	}
 
 	await prisma.user.create({
@@ -44,11 +39,11 @@ const register: Action = async ({ request }) => {
 			username,
 			passwordHash: await bcrypt.hash(password, 10),
 			userAuthToken: crypto.randomUUID(),
-			role: { connect: { name: Roles.USER } },
-		},
-	})
+			role: { connect: { name: Roles.USER } }
+		}
+	});
 
-	redirect(303, '/login')
-}
+	redirect(303, '/login');
+};
 
-export const actions: Actions = { register }
+export const actions: Actions = { register };

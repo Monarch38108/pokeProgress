@@ -1,6 +1,6 @@
-import type {Roles} from "@prisma/client";
+import type { Roles } from '@prisma/client';
 
 export interface UserData {
-    username: string;
-    role: Roles;
+	username: string;
+	role: Roles;
 }
