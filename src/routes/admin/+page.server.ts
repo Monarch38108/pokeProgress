@@ -14,10 +14,10 @@ export const load = async ({ locals }) => {
 		}
 	});
 
-	const games = 'games';
+	const games = await prisma.game.findMany({});
 
 	return {
 		users: users,
-		games: games
+		games: games,
 	};
 };

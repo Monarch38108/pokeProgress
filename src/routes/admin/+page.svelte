@@ -15,4 +15,4 @@
 <h2>User-Administration</h2>
 <UserAdministration UserData={data.users}></UserAdministration>
 <h2>game-Administration</h2>
-<GameAdministration></GameAdministration>
+<GameAdministration GameData={data.games}></GameAdministration>
