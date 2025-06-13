@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { BookOpen, BarChart2, CheckSquare } from 'lucide-svelte';
 </script>
 
