@@ -1,6 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 import { prisma } from '$lib/prisma';
-import type { UserData } from '../../interfaces/UserData';
 
 export const load = async ({ locals }) => {
 	// redirect user if logged in
